@@ -48,6 +48,8 @@ public class EnemyMotor : MonoBehaviour
     {
         if(target)
         {
+            // Debug.Log("turning towards player");
+            
             // causes the player to turn towards the enemy smoothly every frame
             Quaternion targetRot = Quaternion.LookRotation(target.position - transform.position);
             Quaternion lerp = Quaternion.Lerp(transform.rotation, targetRot, rotationSpeed);

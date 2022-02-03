@@ -2,19 +2,40 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float health = 50f;
+    // public float health = 50f;
+    
+    public CharacterStat myStats;
+    // public bool isDead
+    // {
+    //     get{
+    //         return myStats.currentHealth == 0;
+    //     }
+    // }
 
-    public void TakeDamage(float amount)
+    
+    void Start()
     {
-        health -= amount;
-        if(health <= 0f)
-        {
-            Die();
-        }
+        myStats = GetComponent<CharacterStat>();
+    }
+    
+    public void ReduceHealth(int damage)
+    {   
+        myStats.TakeDamage(damage);
+
+        // if(isDead)
     }
 
-    void Die()
-    {
-        Destroy(gameObject, 2f);
-    }
+    // public void TakeDamage(float amount)
+    // {
+    //     health -= amount;
+    //     if(health <= 0f)
+    //     {
+    //         Die();
+    //     }
+    // }
+
+    // void Die()
+    // {
+    //     Destroy(gameObject, 2f);
+    // }
 }
